@@ -6,15 +6,17 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SQRServiceTest {
-    @org.junit.jupiter.api.Test
-    void sqrQuantity() {
+    @ParameterizedTest
+    @CsvSource (value = {"LowLimitEqual, 10, 200, 300, 3",
+    "SimpleTest, 15, 200, 300, 3",
+    "UpperLimitEqual, 20, 200, 300, 3"
+    })
+    void shouldCalculateSqrQuantity(String testName, int i, int LowLimit, int UpperLimit, int expected) {
         SQRService service = new SQRService();
 
         int K = 0;
-        int i = 22;
-        long expected = 3;
 
-        long actual = service.sqrQuantity (K, i);
+        int actual = service.sqrQuantity (K);
 
         assertEquals(expected, actual);
     }
