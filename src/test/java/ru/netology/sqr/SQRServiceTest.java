@@ -7,16 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SQRServiceTest {
     @ParameterizedTest
-    @CsvSource (value = {"LowLimitEqual, 10, 200, 300, 3",
-    "SimpleTest, 15, 200, 300, 3",
-    "UpperLimitEqual, 20, 200, 300, 3"
+    @CsvSource (value = {"LowLimitTest, 10, 200, 300, 3",
+    "SimpleTest, 19, 200, 300, 3",
+    "UpperLimitTest, 20, 200, 300, 3"
     })
     void shouldCalculateSqrQuantity(String testName, int i, int LowLimit, int UpperLimit, int expected) {
         SQRService service = new SQRService();
 
         int K = 0;
 
-        int actual = service.sqrQuantity (K);
+        int actual = service.sqrQuantity (LowLimit, UpperLimit);
 
         assertEquals(expected, actual);
     }
