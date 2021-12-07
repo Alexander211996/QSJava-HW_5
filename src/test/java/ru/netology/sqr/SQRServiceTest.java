@@ -11,12 +11,12 @@ class SQRServiceTest {
     "SimpleTest, 19, 200, 300, 3",
     "UpperLimitTest, 20, 200, 300, 3"
     })
-    void shouldCalculateSqrQuantity(String testName, int i, int LowLimit, int UpperLimit, int expected) {
+    void shouldCalculateSqrQuantity(String testName, int i, int lowLimit, int upperLimit, int expected) {
         SQRService service = new SQRService();
 
-        int K = 0;
+        int k = 0;
 
-        int actual = service.sqrQuantity (LowLimit, UpperLimit);
+        int actual = service.sqrQuantity (lowLimit, upperLimit);
 
         assertEquals(expected, actual);
     }
